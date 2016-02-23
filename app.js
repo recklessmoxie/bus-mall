@@ -23,19 +23,17 @@ var chairEl = document.getElementById('chair');
 var pics = ['dog duck', 'boots', 'chair'];
 
 
-function randomPic(e) {
-  var target = e.target;
-}
-  var el = document.getElementById('dog duck', 'boots', 'chair');
-
+  function randomPic() {
   var randomPic1 = Math.floor(Math.random() * pics.length);
   dogEl.textContent = pics[randomPic1];
   var randomPic2 = Math.floor(Math.random() * pics.length);
   bootsEl.textContent = pics[randomPic2];
   var randomPic3 = Math.floor(Math.random() * pics.length);
   chairEl.textContent = pics[randomPic3];
-  el.addEventListener('click', 'dblclick', function(e) {
-randomPic(e);
-}, false);
+}
+
+
+  dogEl.addEventListener('click','dblclick', randomPic, true);
+
 
 PicChanger();
