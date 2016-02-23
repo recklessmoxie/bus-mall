@@ -2,7 +2,7 @@ body{
 display:flex;
 }
 
-.dog {
+.dog-duck {
    order: <1>;
    top: 50%;
    left: 50%;
