@@ -1,6 +1,7 @@
-Alt-H1 **User Stories**
+                                                ## **User Stories**
 
 ## **Developer:**
+
 * As a Developer I want to:
   + Create an app that engages the user and makes participation fun.
   + Ensure that I am collecting reliable data by having the functionality of the app well thought out and executed efficiently.
@@ -10,6 +11,7 @@ Alt-H1 **User Stories**
   ____
 
   ## **Research Team:**
+  
   * As the Research Team I want to:
     + Have data collected accurately and in accordance with our preferred methods.
     + Keep production costs low buy only producing items that are likely to sell, as outlined in the collected data.
@@ -19,8 +21,9 @@ Alt-H1 **User Stories**
 
     _______
 
-    ## **Focus Group Participant**
-    * As a participant in the focus group I want to:
-      + Have an app that is easy to use and with clear directions.
-      + Be engaged in the product selection process through pleasing design and game-like functionality.
-      + See my results and the results of other participants to compare my answers to theirs.
+  ## **Focus Group Participant**
+  
+  * As a participant in the focus group I want to:
+    + Have an app that is easy to use and with clear directions.
+    + Be engaged in the product selection process through pleasing design and game-like functionality.
+    + See my results and the results of other participants to compare my answers to theirs.
