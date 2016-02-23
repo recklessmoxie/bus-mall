@@ -20,16 +20,22 @@ var dogEl = document.getElementById('dog duck');
 var bootsEl = document.getElementById('boots');
 var chairEl = document.getElementById('chair');
 
-var pics = ['dogDuck', 'boots', 'chair'];
+var pics = ['dog duck', 'boots', 'chair'];
 
-function randomPic() {
+
+function randomPic(e) {
+  var target = e.target;
+}
+  var el = document.getElementById('dog duck', 'boots', 'chair');
+
   var randomPic1 = Math.floor(Math.random() * pics.length);
   dogEl.textContent = pics[randomPic1];
   var randomPic2 = Math.floor(Math.random() * pics.length);
   bootsEl.textContent = pics[randomPic2];
   var randomPic3 = Math.floor(Math.random() * pics.length);
-  chairEl.textContent = pics[randomPic];
-}
+  chairEl.textContent = pics[randomPic3];
+  el.addEventListener('click', 'dblclick', function(e) {
+randomPic(e);
+}, false);
 
 PicChanger();
-randomPic();
