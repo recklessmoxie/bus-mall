@@ -1,12 +1,14 @@
 'use strict';
 
-var ObjectArray = [];
+var picArray = [];
+
 
 function PictureObject(picName, picPath){
   this.picName = picName;
   this.picPath = picPath;
-  this.timesShown = 0;
-  this.timesClicked = 0;
+  this.totalPicSightings = 0;
+  this.totalUserClicks = 0;
+  picArray.push(this);
 }
 
 
@@ -18,7 +20,7 @@ var banana = new PictureObject('banana', 'img/banana.jpg');
 var bathroom = new PictureObject('bathroom', 'img/bathroom.jpg');
 var breakfast = new PictureObject('breakfast', 'img/breakfast.jpg');
 var bubblegum = new PictureObject('bubblegum', 'img/bubblegum.jpg');
-var cthulhu = new PictureObject('cthulu', 'img/cthulu.jpg');
+var cthulhu = new PictureObject('cthulhu', 'img/cthulhu.jpg');
 var dragon = new PictureObject('dragon', 'img/dragon.jpg');
 var pen = new PictureObject('pen', 'img/pen.jpg');
 var petSweep = new PictureObject('pet-sweep', 'img/pet-sweep.jpg');
@@ -31,8 +33,11 @@ var usb = new PictureObject('usb', 'img/usb.gif');
 var waterCan = new PictureObject('water-can', 'img/water-can.jpg');
 var wineGlass = new PictureObject('wine-glass', 'img/wine-glass.jpg');
 
+var picRandomizer= function () {
+  return Math.floor(Math.random() * picArray.length);
 
-// Trying to make this work, dont understand why it doesnt.
+
+
 
 // PictureObject.prototype.displayImg = function() {
 // var ObjectArray = [pen,petSweep,scissors,dog];
@@ -72,14 +77,6 @@ var wineGlass = new PictureObject('wine-glass', 'img/wine-glass.jpg');
     displayImg(usb.picPath);
     displayImg(waterCan.picPath);
     displayImg(wineGlass.picPath);
-//   function picRandomizer() {
-//   var randomPic1 = Math.floor(Math.random() * pics.length);
-//   dogEl.textContent = pics[randomPic1];
-//   var randomPic2 = Math.floor(Math.random() * pics.length);
-//   bootsEl.textContent = pics[randomPic2];
-//   var randomPic3 = Math.floor(Math.random() * pics.length);
-//   chairEl.textContent = pics[randomPic3];
-// }
 
 
 // dogEl.addEventListener('click','dblclick', randomPic, true);
