@@ -1,6 +1,6 @@
 'use strict';
 
-var picArray = [];
+var picDisplay = [];
 
 
 function PictureObject(picName, picPath){
@@ -8,7 +8,7 @@ function PictureObject(picName, picPath){
   this.picPath = picPath;
   this.totalPicSightings = 0;
   this.totalUserClicks = 0;
-  picArray.push(this);
+  picDisplay.push(this);
 }
 
 
@@ -33,8 +33,10 @@ var usb = new PictureObject('usb', 'img/usb.gif');
 var waterCan = new PictureObject('water-can', 'img/water-can.jpg');
 var wineGlass = new PictureObject('wine-glass', 'img/wine-glass.jpg');
 
+
 var picRandomizer= function () {
   return Math.floor(Math.random() * picArray.length);
+}
 
 
 
@@ -47,36 +49,36 @@ var picRandomizer= function () {
 //  document.body.appendChild(newImage);
 // }
 // }
-
+var picDisplay = [dog, chair, boots, bag, banana, bathroom, breakfast, bubblegum, cthulhu, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass];
 // wrote this long ridiculousness to show I can make it work somehow.//
 
 
-  function displayImg(picPath){
+  function displayImg(picDisplay){
     var newImage = document.createElement('img');
-    newImage.src = picPath
+    newImage.src = picDisplay.path;
     document.body.appendChild(newImage)
   }
 
-    displayImg(dog.picPath);
-    displayImg(chair.picPath);
-    displayImg(boots.picPath);
-    displayImg(bag.picPath);
-    displayImg(banana.picPath);
-    displayImg(bathroom.picPath);
-    displayImg(breakfast.picPath);
-    displayImg(bubblegum.picPath);
-    displayImg(pen.picPath);
-    displayImg(cthulhu.picPath);
-    displayImg(dragon.picPath);
-    displayImg(petSweep.picPath);
-    displayImg(scissors.picPath);
-    displayImg(shark.picPath);
-    displayImg(sweep.picPath);
-    displayImg(tauntaun.picPath);
-    displayImg(unicorn.picPath);
-    displayImg(usb.picPath);
-    displayImg(waterCan.picPath);
-    displayImg(wineGlass.picPath);
+    // displayImg(dog.picPath);
+    // displayImg(chair.picPath);
+    // displayImg(boots.picPath);
+    // displayImg(bag.picPath);
+    // displayImg(banana.picPath);
+    // displayImg(bathroom.picPath);
+    // displayImg(breakfast.picPath);
+    // displayImg(bubblegum.picPath);
+    // displayImg(pen.picPath);
+    // displayImg(cthulhu.picPath);
+    // displayImg(dragon.picPath);
+    // displayImg(petSweep.picPath);
+    // displayImg(scissors.picPath);
+    // displayImg(shark.picPath);
+    // displayImg(sweep.picPath);
+    // displayImg(tauntaun.picPath);
+    // displayImg(unicorn.picPath);
+    // displayImg(usb.picPath);
+    // displayImg(waterCan.picPath);
+    // displayImg(wineGlass.picPath);
 
 
 // dogEl.addEventListener('click','dblclick', randomPic, true);
