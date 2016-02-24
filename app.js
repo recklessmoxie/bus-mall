@@ -36,8 +36,12 @@ var wineGlass = new PictureObject('wine glass', 'img/wine-glass.png');
 
 PictureObject.prototype.render = function() {
 
+//   This will be the event listener once I figure out the randomizer, i think
+// dogEl.addEventListener('click','dblclick', randomPic, true);
+
 PictureObject.prototype.displayRandomPic = function () {
   return Math.floor(Math.random() * picArray.length);
+  console.log(this.displayRandomPic);
 }
 
 
@@ -52,27 +56,28 @@ PictureObject.prototype.displayImg = function() {
 
  };
 this.displayImg();
+this.displayRandomPic();
 }
 
 
 
 bag.render();
 banana.render();
-bathroom.render();// dogEl.addEventListener('click','dblclick', randomPic, true);
-// boots.render();
-// breakfast.render();
-// bubblegum.render();
-// chair.render();
-// cthulhu.render();
-// dog.render();
-// dragon.render();
-// pen.render();
-// petSweep.render();
-// scissors.render();
-// shark.render();
-// sweep.render();
-// tauntaun.render();
-// unicorn.render();
-// usb.render();
-// waterCan.render();
-// wineGlass.render();
+bathroom.render();
+boots.render();
+breakfast.render();
+bubblegum.render();
+chair.render();
+cthulhu.render();
+dog.render();
+dragon.render();
+pen.render();
+petSweep.render();
+scissors.render();
+shark.render();
+sweep.render();
+tauntaun.render();
+unicorn.render();
+usb.render();
+waterCan.render();
+wineGlass.render();
