@@ -1,7 +1,7 @@
 'use strict';
 
 var picArray = [];
-
+var randomArray = [];
 
 function PictureObject(picId, picPath){
   this.picId = picId;
@@ -33,11 +33,15 @@ var usb = new PictureObject('usb', 'img/usb.gif');
 var waterCan = new PictureObject('water can', 'img/water-can.jpg');
 var wineGlass = new PictureObject('wine glass', 'img/wine-glass.jpg');
 
-var picArray = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dog, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass];
 
 PictureObject.prototype.render = function() {
 
-PictureObject.prototype.displayImg = function(picArray) {
+PictureObject.prototype.displayRandomPic = function () {
+  return Math.floor(Math.random() * picArray.length);
+}
+
+
+PictureObject.prototype.displayImg = function() {
 
  var newImage = document.createElement('img');
  newImage.src = this.picPath;
@@ -45,27 +49,30 @@ PictureObject.prototype.displayImg = function(picArray) {
  document.body.appendChild(newImage);
 
  this.totalPicSightings++;
+
  };
- this.displayImg();
- }
+this.displayImg();
+}
+
+
 
 bag.render();
 banana.render();
 bathroom.render();// dogEl.addEventListener('click','dblclick', randomPic, true);
-boots.render();
-breakfast.render();
-bubblegum.render();
-chair.render();
-cthulhu.render();
-dog.render();
-dragon.render();
-pen.render();
-petSweep.render();
-scissors.render();
-shark.render();
-sweep.render();
-tauntaun.render();
-unicorn.render();
-usb.render();
-waterCan.render();
-wineGlass.render();
+// boots.render();
+// breakfast.render();
+// bubblegum.render();
+// chair.render();
+// cthulhu.render();
+// dog.render();
+// dragon.render();
+// pen.render();
+// petSweep.render();
+// scissors.render();
+// shark.render();
+// sweep.render();
+// tauntaun.render();
+// unicorn.render();
+// usb.render();
+// waterCan.render();
+// wineGlass.render();
