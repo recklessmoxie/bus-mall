@@ -1,4 +1,4 @@
-'strict';
+// 'use strict';
 
 function PictureObject(picName, picPath){
   this.picName = picName;
