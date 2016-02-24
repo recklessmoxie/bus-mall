@@ -12,26 +12,26 @@ function PictureObject(picId, picPath){
 }
 
 
-var dog = new PictureObject('dog', 'img/dog-duck.jpg');
-var boots = new PictureObject('boots', 'img/boots.jpg');
-var chair = new PictureObject('chair', 'img/chair.jpg');
-var bag = new PictureObject('bag', 'img/bag.jpg');
-var banana = new PictureObject('banana', 'img/banana.jpg');
-var bathroom = new PictureObject('bathroom', 'img/bathroom.jpg');
-var breakfast = new PictureObject('breakfast', 'img/breakfast.jpg');
-var bubblegum = new PictureObject('bubblegum', 'img/bubblegum.jpg');
-var cthulhu = new PictureObject('cthulhu', 'img/cthulhu.jpg');
-var dragon = new PictureObject('dragon', 'img/dragon.jpg');
-var pen = new PictureObject('pen', 'img/pen.jpg');
-var petSweep = new PictureObject('pet-sweep', 'img/pet-sweep.jpg');
-var scissors = new PictureObject('scissors', 'img/scissors.jpg');
-var shark = new PictureObject('shark', 'img/shark.jpg');
+var dog = new PictureObject('dog', 'img/dog-duck.png');
+var boots = new PictureObject('boots', 'img/boots.png');
+var chair = new PictureObject('chair', 'img/chair.png');
+var bag = new PictureObject('bag', 'img/bag.png');
+var banana = new PictureObject('banana', 'img/banana.png');
+var bathroom = new PictureObject('bathroom', 'img/bathroom.png');
+var breakfast = new PictureObject('breakfast', 'img/breakfast.png');
+var bubblegum = new PictureObject('bubblegum', 'img/bubblegum.png');
+var cthulhu = new PictureObject('cthulhu', 'img/cthulhu.png');
+var dragon = new PictureObject('dragon', 'img/dragon.png');
+var pen = new PictureObject('pen', 'img/pen.png');
+var petSweep = new PictureObject('pet-sweep', 'img/pet-sweep.png');
+var scissors = new PictureObject('scissors', 'img/scissors.png');
+var shark = new PictureObject('shark', 'img/shark.png');
 var sweep = new PictureObject('sweep', 'img/sweep.png');
-var tauntaun = new PictureObject('tauntaun', 'img/tauntaun.jpg');
-var unicorn = new PictureObject('unicorn', 'img/unicorn.jpg');
+var tauntaun = new PictureObject('tauntaun', 'img/tauntaun.png');
+var unicorn = new PictureObject('unicorn', 'img/unicorn.png');
 var usb = new PictureObject('usb', 'img/usb.gif');
-var waterCan = new PictureObject('water can', 'img/water-can.jpg');
-var wineGlass = new PictureObject('wine glass', 'img/wine-glass.jpg');
+var waterCan = new PictureObject('water can', 'img/water-can.png');
+var wineGlass = new PictureObject('wine glass', 'img/wine-glass.png');
 
 
 PictureObject.prototype.render = function() {
