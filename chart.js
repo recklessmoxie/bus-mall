@@ -1,19 +1,4 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @recklessmoxie
- Watch 893
-  Star 18,319
-  Fork 5,687 nnnick/Chart.js
- Code  Issues 179  Pull requests 15  Pulse  Graphs
-Branch: master Find file Copy pathChart.js/Chart.js
-4aa274d  8 days ago
- Evert Timberg Default multiTooltipTemplate now shows the dataset label + updated bu…
-7 contributors @nnnick @JonRowe @andyburke @epeli @BrettBukowski @robocoder @chandruxp
-RawBlameHistory     3732 lines (3176 sloc)  115 KB
+
 /*!
  * Chart.js
  * http://chartjs.org/

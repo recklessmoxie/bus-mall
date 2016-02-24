@@ -1,14 +1,14 @@
 'use strict';
 
-var picDisplay = [];
+var picArray = [];
 
 
-function PictureObject(picName, picPath){
-  this.picName = picName;
+function PictureObject(picId, picPath){
+  this.picId = picId;
   this.picPath = picPath;
   this.totalPicSightings = 0;
   this.totalUserClicks = 0;
-  picDisplay.push(this);
+  picArray.push(this);
 }
 
 
@@ -30,55 +30,42 @@ var sweep = new PictureObject('sweep', 'img/sweep.png');
 var tauntaun = new PictureObject('tauntaun', 'img/tauntaun.jpg');
 var unicorn = new PictureObject('unicorn', 'img/unicorn.jpg');
 var usb = new PictureObject('usb', 'img/usb.gif');
-var waterCan = new PictureObject('water-can', 'img/water-can.jpg');
-var wineGlass = new PictureObject('wine-glass', 'img/wine-glass.jpg');
+var waterCan = new PictureObject('water can', 'img/water-can.jpg');
+var wineGlass = new PictureObject('wine glass', 'img/wine-glass.jpg');
 
+var picArray = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dog, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass];
 
-var picRandomizer= function () {
-  return Math.floor(Math.random() * picArray.length);
-}
+PictureObject.prototype.render = function() {
 
+PictureObject.prototype.displayImg = function(picArray) {
 
+ var newImage = document.createElement('img');
+ newImage.src = this.picPath;
+ newImage.id = this.picId;
+ document.body.appendChild(newImage);
 
+ this.totalPicSightings++;
+ };
+ this.displayImg();
+ }
 
-// PictureObject.prototype.displayImg = function() {
-// var ObjectArray = [pen,petSweep,scissors,dog];
-//   for(var i = 0; i < ObjectArray.length; i++){
-//  var newImage = document.createElement('img');
-//  newImage.src = ObjectArray.picPath[i];
-//  document.body.appendChild(newImage);
-// }
-// }
-var picDisplay = [dog, chair, boots, bag, banana, bathroom, breakfast, bubblegum, cthulhu, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass];
-// wrote this long ridiculousness to show I can make it work somehow.//
-
-
-  function displayImg(picDisplay){
-    var newImage = document.createElement('img');
-    newImage.src = picDisplay.path;
-    document.body.appendChild(newImage)
-  }
-
-    // displayImg(dog.picPath);
-    // displayImg(chair.picPath);
-    // displayImg(boots.picPath);
-    // displayImg(bag.picPath);
-    // displayImg(banana.picPath);
-    // displayImg(bathroom.picPath);
-    // displayImg(breakfast.picPath);
-    // displayImg(bubblegum.picPath);
-    // displayImg(pen.picPath);
-    // displayImg(cthulhu.picPath);
-    // displayImg(dragon.picPath);
-    // displayImg(petSweep.picPath);
-    // displayImg(scissors.picPath);
-    // displayImg(shark.picPath);
-    // displayImg(sweep.picPath);
-    // displayImg(tauntaun.picPath);
-    // displayImg(unicorn.picPath);
-    // displayImg(usb.picPath);
-    // displayImg(waterCan.picPath);
-    // displayImg(wineGlass.picPath);
-
-
-// dogEl.addEventListener('click','dblclick', randomPic, true);
+bag.render();
+banana.render();
+bathroom.render();// dogEl.addEventListener('click','dblclick', randomPic, true);
+boots.render();
+breakfast.render();
+bubblegum.render();
+chair.render();
+cthulhu.render();
+dog.render();
+dragon.render();
+pen.render();
+petSweep.render();
+scissors.render();
+shark.render();
+sweep.render();
+tauntaun.render();
+unicorn.render();
+usb.render();
+waterCan.render();
+wineGlass.render();
