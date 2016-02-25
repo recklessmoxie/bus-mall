@@ -2,6 +2,7 @@
 
 var imageData = [];
 var globalClickCounter = [];
+var randomImageArray = [];
 
 function FocusGroupData (imageName,imageId,imagePath) {
     this.imageName = imageName;
@@ -13,6 +14,7 @@ function FocusGroupData (imageName,imageId,imagePath) {
     this.timesUserChoseLeftImage = 0;
     this.timesUserChoseCenterImage = 0;
     imageData.push(this);
+    randomImageArray.push(this);
 }
 // line 13 allows for all instances of FocusGroupData to be pushed into a global array for easier access.
 
@@ -37,47 +39,64 @@ var usb = new FocusGroupData('Animated-Usb-Tentacle','usb','img/usb.gif');
 var waterCan = new FocusGroupData('Water-Can','waterCan','img/water-can.png');
 var wineGlass = new FocusGroupData('Wine-Glass','wineGlass','img/wine-glass.png');
 
-function button() {
-  if (globalClicks < imageData.length) {
-    document.getElementById('more votes').style.visibility = 'hidden';
-
-  } else {
-
-    document.getElementById('view results').style.visibility = 'visible';
-  }
+FocusGroupData.prototype.imagePlacement = function() {
+  var newImage = document.createElement('img');
+  newImage.src = this.imagePath;
+  newImage.id = this.imageId;
+  document.body.appendChild(newImage);
+  // imageData.push(this);
+  this.imageDisplayedCount++;
 }
-
-FocusGroupData.prototype.render = function() {
-
-
-
-
-    FocusGroupData.prototype.fetchRandomImages = function () {
-    return Math.floor((Math.random() * imageData.length)) ;
+function fetchRandomImages() {
+  return Math.floor((Math.random() * randomImageArray.length));
   }
 
-  FocusGroupData.prototype.displayThreeRandomImages= function() {
+  function createRandomImageArray() {
   var img1 = fetchRandomImages();
   var img2 = fetchRandomImages();
   var img3 = fetchRandomImages();
 
   while (img1 === img2) {
   img2 = fetchRandomImages();
-}
+  }
   while (img1 === img2 || img2 === img3 || img3 === img1) {
   img3 = fetchRandomImages();
+  }
+  return [img1,img2,img3];
+  }
+
+function displayThreeImages() {
+  var threeRandomImageNumbers = createRandomImageArray();
+  console.log(threeRandomImageNumbers);
+  for(var i = 0; i < threeRandomImageNumbers.length; i++){
+    var index = threeRandomImageNumbers[i];
+    var object = imageData[index];
+    object.imagePlacement();
+  }
 }
-return [img1,img2,img3];
-}
+displayThreeImages();
+// function showResultsButton() {
+//   if (globalClickCounter < imageData.length) {
+//     document.getElementById('view results').style.visibility = 'hidden';
+//
+//   } else {
+//
+//     document.getElementById('view results').style.visibility = 'visible';
+//   }
+// }
+//
+// function showMoreVotesButton() {
+//   if (globalClickCounter < imageData.length) {
+//     document.getElementById('more votes').style.visibility = 'hidden';
+//
+//   } else {
+//
+//     document.getElementById('more votes').style.visibility = 'visible';
+//   }
+// }
 
-FocusGroupData.prototype.imagePlacement = function() {
-  var newImage = document.createElement('img');
-  newImage.src = this.imagePath;
-  newImage.id = this.imageId;
-  document.body.appendChild(newImage);
-}
-imageData.push(this);
-}
+
+// FocusGroupData.prototype.render = function() {
 
 
 
@@ -85,23 +104,31 @@ imageData.push(this);
 
 
 
-bag.render();
-banana.render();
-bathroom.render();
-boots.render();
-breakfast.render();
-bubblegum.render();
-chair.render();
-cthulhu.render();
-dog.render();
-dragon.render();
-pen.render();
-petSweep.render();
-scissors.render();
-shark.render();
-sweep.render();
-tauntaun.render();
-unicorn.render();
-usb.render();
-waterCan.render();
-wineGlass.render();
+
+
+
+
+
+// showResultsButton();
+// showMoreVotesButton();
+//
+// bag.render();
+// banana.render();
+// bathroom.render();
+// boots.render();
+// breakfast.render();
+// bubblegum.render();
+// chair.render();
+// cthulhu.render();
+// dog.render();
+// dragon.render();
+// pen.render();
+// petSweep.render();
+// scissors.render();
+// shark.render();
+// sweep.render();
+// tauntaun.render();
+// unicorn.render();
+// usb.render();
+// waterCan.render();
+// wineGlass.render();
