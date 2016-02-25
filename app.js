@@ -1,61 +1,65 @@
 'use strict';
 
-var picArray = [];
-var randomArray = [];
+// var imageData = [];
+// var randomArray = [];
 
-function PictureObject(picId, picPath){
-  this.picId = picId;
-  this.picPath = picPath;
-  this.totalPicSightings = 0;
-  this.totalUserClicks = 0;
-  picArray.push(this);
+function FocusGroupData (imageName, imageId, imagePath) {
+    this.imageName = imageName;
+    this.imageId = 'Product Image';
+    this.imagePath = imagePath;
+    this.imageDisplayedCount = 0;
+    this.totalClickCount = 0;
+    this.timesUserChoseRightImage = 0;
+    this.timesUserChoseLeftImage = 0;
+    this.timesUserChoseCenterImage = 0;
+    arrayOfImages.push(this);
 }
+// line 13 allows for all instances of FocusGroupData to be pushed into a global array for easier access.
+
+var dog = new FocusGroupData('Dog-Duckbill', 'img/dog-duck.png');
+var boots = new FocusGroupData('Open-Toe-Boots', 'img/boots.png');
+var chair = new FocusGroupData('Chair', 'img/chair.png');
+var bag = new FocusGroupData('R2D2-Bag', 'img/bag.png');
+var banana = new FocusGroupData('Banana-Cutter', 'img/banana.png');
+var bathroom = new FocusGroupData('Ipad-Tp-Holder', 'img/bathroom.png');
+var breakfast = new FocusGroupData('Breakfast-Making-Machine', 'img/breakfast.png');
+var bubblegum = new FocusGroupData('Meatball-Bubblegum', 'img/bubblegum.png');
+var cthulhu = new FocusGroupData('Cthulhu-Toy', 'img/cthulhu.png');
+var dragon = new FocusGroupData('Dragon-Meat', 'img/dragon.png');
+var pen = new FocusGroupData('Pen-Cutlery', 'img/pen.png');
+var petSweep = new FocusGroupData('Pet-Sweep-Dust-Boots', 'img/pet-sweep.png');
+var scissors = new FocusGroupData('Pizza-Scissors', 'img/scissors.png');
+var shark = new FocusGroupData('Shark-Sleeping-Bag', 'img/shark.png');
+var sweep = new FocusGroupData('Sweeping-Baby-Clothes', 'img/sweep.png');
+var tauntaun = new FocusGroupData('Tauntaun-Sleeping-Bag', 'img/tauntaun.png');
+var unicorn = new FocusGroupData('Unicorn-Meat', 'img/unicorn.png');
+var usb = new FocusGroupData('Animated-Usb-Tentacle', 'img/usb.gif');
+var waterCan = new FocusGroupData('Water-Can', 'img/water-can.png');
+var wineGlass = new FocusGroupData('Spill-Guaranteed-Wine-Glass', 'img/wine-glass.png');
 
 
-var dog = new PictureObject('dog', 'img/dog-duck.png');
-var boots = new PictureObject('boots', 'img/boots.png');
-var chair = new PictureObject('chair', 'img/chair.png');
-var bag = new PictureObject('bag', 'img/bag.png');
-var banana = new PictureObject('banana', 'img/banana.png');
-var bathroom = new PictureObject('bathroom', 'img/bathroom.png');
-var breakfast = new PictureObject('breakfast', 'img/breakfast.png');
-var bubblegum = new PictureObject('bubblegum', 'img/bubblegum.png');
-var cthulhu = new PictureObject('cthulhu', 'img/cthulhu.png');
-var dragon = new PictureObject('dragon', 'img/dragon.png');
-var pen = new PictureObject('pen', 'img/pen.png');
-var petSweep = new PictureObject('pet-sweep', 'img/pet-sweep.png');
-var scissors = new PictureObject('scissors', 'img/scissors.png');
-var shark = new PictureObject('shark', 'img/shark.png');
-var sweep = new PictureObject('sweep', 'img/sweep.png');
-var tauntaun = new PictureObject('tauntaun', 'img/tauntaun.png');
-var unicorn = new PictureObject('unicorn', 'img/unicorn.png');
-var usb = new PictureObject('usb', 'img/usb.gif');
-var waterCan = new PictureObject('water can', 'img/water-can.png');
-var wineGlass = new PictureObject('wine glass', 'img/wine-glass.png');
-
-
-PictureObject.prototype.render = function() {
+FocusGroupData.prototype.render = function() {
 
 //   This will be the event listener once I figure out the randomizer, i think
 // dogEl.addEventListener('click','dblclick', randomPic, true);
 
-PictureObject.prototype.displayRandomPic = function () {
-  return Math.floor(Math.random() * picArray.length);
-  console.log(this.displayRandomPic);
+FocusGroupData.prototype.displayRandomPic = function () {
+    return Math.floor(Math.random() * arrayOfImages.length) ;
+
 }
 
 
-PictureObject.prototype.displayImg = function() {
+FocusGroupData.prototype.imagePlacement = function() {
 
  var newImage = document.createElement('img');
- newImage.src = this.picPath;
- newImage.id = this.picId;
+ newImage.src = this.imagePath;
+ newImage.id = this.imageId;
  document.body.appendChild(newImage);
 
- this.totalPicSightings++;
+ this.imageDisplayedCount++;
 
  };
-this.displayImg();
+this.imagePlacement();
 this.displayRandomPic();
 }
 
