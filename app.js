@@ -1,54 +1,61 @@
 'use strict';
 
-var imageData = [];
-var clickAllowance = 25;
+var productImageData = [];
 var globalClickCounter = 0;
+var img1;
+var img2;
+var img3;
+var image1 = document.getElementById('image1');
+var image2 = document.getElementById('image2');
+var image3 = document.getElementById('image3');
+var imageSection = document.getElementById('hide');
 
-function FocusGroupData (imageName,imageId,imagePath) {
+function ProductData (imageName,imageId,imagePath) {
     this.imageName = imageName;
     this.imageId = imageId;
     this.imagePath = imagePath;
     this.imageDisplayedCount = 0;
     this.totalClickCount = 0;
-    this.timesUserChoseRightImage = 0;
-    this.timesUserChoseLeftImage = 0;
-    this.timesUserChoseCenterImage = 0;
-    imageData.push(this);
+    productImageData.push(this);
 }
-// line 13 allows for all instances of FocusGroupData to be pushed into a global array for easier access.
+// line 13 allows for all instances of ProductData to be pushed into a global array for easier access.
 
-var dog = new FocusGroupData('Dog-Duckbill','dog','img/dog-duck.png');
-var boots = new FocusGroupData('Open-Toe-Boots','boots','img/boots.png');
-var chair = new FocusGroupData('Chair','Chair','img/chair.png');
-var bag = new FocusGroupData('R2D2-Bag','bag','img/bag.png');
-var banana = new FocusGroupData('Banana-Cutter','banana','img/banana.png');
-var bathroom = new FocusGroupData('Ipad-Tp-Holder','bathroom','img/bathroom.png');
-var breakfast = new FocusGroupData('Breakfast-Making-Machine','breakfast','img/breakfast.png');
-var bubblegum = new FocusGroupData('Meatball-Bubblegum','bubblegum','img/bubblegum.png');
-var cthulhu = new FocusGroupData('Cthulhu-Toy','cthulhu','img/cthulhu.png');
-var dragon = new FocusGroupData('Dragon-Meat','dragon','img/dragon.png');
-var pen = new FocusGroupData('Pen-Cutlery','pen','img/pen.png');
-var petSweep = new FocusGroupData('Pet-Sweep-Dust-Boots','pet-sweep','img/pet-sweep.png');
-var scissors = new FocusGroupData('Pizza-Scissors', 'scissors','img/scissors.png');
-var shark = new FocusGroupData('Shark-Sleeping-Bag','shark','img/shark.png');
-var sweep = new FocusGroupData('Sweeping-Baby-Clothes','sweep','img/sweep.png');
-var tauntaun = new FocusGroupData('Tauntaun-Sleeping-Bag','tauntaun','img/tauntaun.png');
-var unicorn = new FocusGroupData('Unicorn-Meat','unicorn','img/unicorn.png');
-var usb = new FocusGroupData('Animated-Usb-Tentacle','usb','img/usb.gif');
-var waterCan = new FocusGroupData('Water-Can','waterCan','img/water-can.png');
-var wineGlass = new FocusGroupData('Wine-Glass','wineGlass','img/wine-glass.png');
+var dog = new ProductData('Dog-Duckbill','dog','img/dog-duck.png');
+var boots = new ProductData('Open-Toe-Boots','boots','img/boots.png');
+var chair = new ProductData('Chair','Chair','img/chair.png');
+var bag = new ProductData('R2D2-Bag','bag','img/bag.png');
+var banana = new ProductData('Banana-Cutter','banana','img/banana.png');
+var bathroom = new ProductData('Ipad-Tp-Holder','bathroom','img/bathroom.png');
+var breakfast = new ProductData('Breakfast-Making-Machine','breakfast','img/breakfast.png');
+var bubblegum = new ProductData('Meatball-Bubblegum','bubblegum','img/bubblegum.png');
+var cthulhu = new ProductData('Cthulhu-Toy','cthulhu','img/cthulhu.png');
+var dragon = new ProductData('Dragon-Meat','dragon','img/dragon.png');
+var pen = new ProductData('Pen-Cutlery','pen','img/pen.png');
+var petSweep = new ProductData('Pet-Sweep-Dust-Boots','pet-sweep','img/pet-sweep.png');
+var scissors = new ProductData('Pizza-Scissors', 'scissors','img/scissors.png');
+var shark = new ProductData('Shark-Sleeping-Bag','shark','img/shark.png');
+var sweep = new ProductData('Sweeping-Baby-Clothes','sweep','img/sweep.png');
+var tauntaun = new ProductData('Tauntaun-Sleeping-Bag','tauntaun','img/tauntaun.png');
+var unicorn = new ProductData('Unicorn-Meat','unicorn','img/unicorn.png');
+var usb = new ProductData('Animated-Usb-Tentacle','usb','img/usb.gif');
+var waterCan = new ProductData('Water-Can','waterCan','img/water-can.png');
+var wineGlass = new ProductData('Wine-Glass','wineGlass','img/wine-glass.png');
 
 
+function randomImagePlacement () {
+var productImageOne = document.getElementById('imageOne');
+var productImageTwo = document.getElementById('imageTwo');
+var productImageThree = document.getElementById('imageThree');
 }
 
 function randomNumberArray() {
-  return Math.floor((Math.random() * imageData.length));
+  return Math.floor((Math.random() * ProductImageData.length));
   }
 
 function randomImageArray() {
-  var img1 = randomNumberArray();
-  var img2 = randomNumberArray();
-  var img3 = randomNumberArray();
+   img1 = randomNumberArray();
+   img2 = randomNumberArray();
+   img3 = randomNumberArray();
 
   while (img1 === img2) {
   img2 = randomNumberArray();
@@ -64,15 +71,20 @@ function displayThreeImages() {
   console.log(threeRandomNumbers);
   for(var i = 0; i < threeRandomNumbers.length; i++) {
     var index = threeRandomNumbers[i];
-    var object = imageData[index];
-    object.imagePlacement();
+    var object = ProductImageData[index];
+    object.randomImagePlacement();
   }
 };
 
 displayThreeImages();
 
+image1.addEventListener('click', handleClickOnFirst);
+image2.addEventListener('click', handleClickOnSecond);
+image3.addEventListener('click', handleClickOnThird);
+displayThreeImages();
+
 function showResultsButton() {
-  if (globalClickCounter < imageData.length) {
+  if (globalClickCounter < ProductImageData.length) {
     document.getElementById('view results').style.visibility = 'hidden';
 
   } else {
@@ -82,7 +94,7 @@ function showResultsButton() {
 }
 
 function showMoreVotesButton() {
-  if (globalClickCounter < imageData.length) {
+  if (globalClickCounter < ProductImageData.length) {
     document.getElementById('more votes').style.visibility = 'hidden';
 
   } else {
