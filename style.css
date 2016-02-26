@@ -1,29 +1,17 @@
-body{
+body {
 display:flex;
 }
 
-.dog-duck {
-   order: <1>;
-   top: 50%;
-   left: 50%;
-   width: 500px;
-   height: 500px;
+title {
+
 }
 
-.boots {
-  order: <2>;
+img {
+  flex-wrap: nowrap|wrap|wrap-reverse;
   top: 50%;
   left: 50%;
-  width: 200px;
-  height: 200px;
-}
-
-.chair {
-  order: <3>;
-  top: 50%;
-  left: 50%;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
 }
 
  .button1 {
@@ -31,5 +19,5 @@ display:flex;
 }
 
 .button2 {
-  
+
 }
