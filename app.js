@@ -1,134 +1,104 @@
 'use strict';
 
-var imageData = [];
-var globalClickCounter = [];
-var randomImageArray = [];
+var productImageData = [];
+var globalClickCounter = 0;
+var img1;
+var img2;
+var img3;
+var image1 = document.getElementById('image1');
+var image2 = document.getElementById('image2');
+var image3 = document.getElementById('image3');
+var imageSection = document.getElementById('hide');
 
-function FocusGroupData (imageName,imageId,imagePath) {
+function ProductData (imageName,imageId,imagePath) {
     this.imageName = imageName;
     this.imageId = imageId;
     this.imagePath = imagePath;
     this.imageDisplayedCount = 0;
     this.totalClickCount = 0;
-    this.timesUserChoseRightImage = 0;
-    this.timesUserChoseLeftImage = 0;
-    this.timesUserChoseCenterImage = 0;
-    imageData.push(this);
-    randomImageArray.push(this);
+    productImageData.push(this);
 }
-// line 13 allows for all instances of FocusGroupData to be pushed into a global array for easier access.
+// line 13 allows for all instances of ProductData to be pushed into a global array for easier access.
 
-var dog = new FocusGroupData('Dog-Duckbill','dog','img/dog-duck.png');
-var boots = new FocusGroupData('Open-Toe-Boots','boots','img/boots.png');
-var chair = new FocusGroupData('Chair','Chair','img/chair.png');
-var bag = new FocusGroupData('R2D2-Bag','bag','img/bag.png');
-var banana = new FocusGroupData('Banana-Cutter','banana','img/banana.png');
-var bathroom = new FocusGroupData('Ipad-Tp-Holder','bathroom','img/bathroom.png');
-var breakfast = new FocusGroupData('Breakfast-Making-Machine','breakfast','img/breakfast.png');
-var bubblegum = new FocusGroupData('Meatball-Bubblegum','bubblegum','img/bubblegum.png');
-var cthulhu = new FocusGroupData('Cthulhu-Toy','cthulhu','img/cthulhu.png');
-var dragon = new FocusGroupData('Dragon-Meat','dragon','img/dragon.png');
-var pen = new FocusGroupData('Pen-Cutlery','pen','img/pen.png');
-var petSweep = new FocusGroupData('Pet-Sweep-Dust-Boots','pet-sweep','img/pet-sweep.png');
-var scissors = new FocusGroupData('Pizza-Scissors', 'scissors','img/scissors.png');
-var shark = new FocusGroupData('Shark-Sleeping-Bag','shark','img/shark.png');
-var sweep = new FocusGroupData('Sweeping-Baby-Clothes','sweep','img/sweep.png');
-var tauntaun = new FocusGroupData('Tauntaun-Sleeping-Bag','tauntaun','img/tauntaun.png');
-var unicorn = new FocusGroupData('Unicorn-Meat','unicorn','img/unicorn.png');
-var usb = new FocusGroupData('Animated-Usb-Tentacle','usb','img/usb.gif');
-var waterCan = new FocusGroupData('Water-Can','waterCan','img/water-can.png');
-var wineGlass = new FocusGroupData('Wine-Glass','wineGlass','img/wine-glass.png');
+var dog = new ProductData('Dog-Duckbill','dog','img/dog-duck.png');
+var boots = new ProductData('Open-Toe-Boots','boots','img/boots.png');
+var chair = new ProductData('Chair','Chair','img/chair.png');
+var bag = new ProductData('R2D2-Bag','bag','img/bag.png');
+var banana = new ProductData('Banana-Cutter','banana','img/banana.png');
+var bathroom = new ProductData('Ipad-Tp-Holder','bathroom','img/bathroom.png');
+var breakfast = new ProductData('Breakfast-Making-Machine','breakfast','img/breakfast.png');
+var bubblegum = new ProductData('Meatball-Bubblegum','bubblegum','img/bubblegum.png');
+var cthulhu = new ProductData('Cthulhu-Toy','cthulhu','img/cthulhu.png');
+var dragon = new ProductData('Dragon-Meat','dragon','img/dragon.png');
+var pen = new ProductData('Pen-Cutlery','pen','img/pen.png');
+var petSweep = new ProductData('Pet-Sweep-Dust-Boots','pet-sweep','img/pet-sweep.png');
+var scissors = new ProductData('Pizza-Scissors', 'scissors','img/scissors.png');
+var shark = new ProductData('Shark-Sleeping-Bag','shark','img/shark.png');
+var sweep = new ProductData('Sweeping-Baby-Clothes','sweep','img/sweep.png');
+var tauntaun = new ProductData('Tauntaun-Sleeping-Bag','tauntaun','img/tauntaun.png');
+var unicorn = new ProductData('Unicorn-Meat','unicorn','img/unicorn.png');
+var usb = new ProductData('Animated-Usb-Tentacle','usb','img/usb.gif');
+var waterCan = new ProductData('Water-Can','waterCan','img/water-can.png');
+var wineGlass = new ProductData('Wine-Glass','wineGlass','img/wine-glass.png');
 
-FocusGroupData.prototype.imagePlacement = function() {
-  var newImage = document.createElement('img');
-  newImage.src = this.imagePath;
-  newImage.id = this.imageId;
-  document.body.appendChild(newImage);
-  // imageData.push(this);
-  this.imageDisplayedCount++;
+
+function randomImagePlacement () {
+var productImageOne = document.getElementById('imageOne');
+var productImageTwo = document.getElementById('imageTwo');
+var productImageThree = document.getElementById('imageThree');
 }
-function fetchRandomImages() {
-  return Math.floor((Math.random() * randomImageArray.length));
+
+function randomNumberArray() {
+  return Math.floor((Math.random() * ProductImageData.length));
   }
 
-  function createRandomImageArray() {
-  var img1 = fetchRandomImages();
-  var img2 = fetchRandomImages();
-  var img3 = fetchRandomImages();
+function randomImageArray() {
+   img1 = randomNumberArray();
+   img2 = randomNumberArray();
+   img3 = randomNumberArray();
 
   while (img1 === img2) {
-  img2 = fetchRandomImages();
+  img2 = randomNumberArray();
   }
   while (img1 === img2 || img2 === img3 || img3 === img1) {
-  img3 = fetchRandomImages();
+  img3 = randomNumberArray();
   }
   return [img1,img2,img3];
   }
 
 function displayThreeImages() {
-  var threeRandomImageNumbers = createRandomImageArray();
-  console.log(threeRandomImageNumbers);
-  for(var i = 0; i < threeRandomImageNumbers.length; i++){
-    var index = threeRandomImageNumbers[i];
-    var object = imageData[index];
-    object.imagePlacement();
+  var threeRandomNumbers = randomImageArray();
+  console.log(threeRandomNumbers);
+  for(var i = 0; i < threeRandomNumbers.length; i++) {
+    var index = threeRandomNumbers[i];
+    var object = ProductImageData[index];
+    object.randomImagePlacement();
+  }
+};
+
+displayThreeImages();
+
+image1.addEventListener('click', handleClickOnFirst);
+image2.addEventListener('click', handleClickOnSecond);
+image3.addEventListener('click', handleClickOnThird);
+displayThreeImages();
+
+function showResultsButton() {
+  if (globalClickCounter < ProductImageData.length) {
+    document.getElementById('view results').style.visibility = 'hidden';
+
+  } else {
+
+    document.getElementById('view results').style.visibility = 'visible';
   }
 }
-displayThreeImages();
-// function showResultsButton() {
-//   if (globalClickCounter < imageData.length) {
-//     document.getElementById('view results').style.visibility = 'hidden';
-//
-//   } else {
-//
-//     document.getElementById('view results').style.visibility = 'visible';
-//   }
-// }
-//
-// function showMoreVotesButton() {
-//   if (globalClickCounter < imageData.length) {
-//     document.getElementById('more votes').style.visibility = 'hidden';
-//
-//   } else {
-//
-//     document.getElementById('more votes').style.visibility = 'visible';
-//   }
-// }
 
+function showMoreVotesButton() {
+  if (globalClickCounter < ProductImageData.length) {
+    document.getElementById('more votes').style.visibility = 'hidden';
 
-// FocusGroupData.prototype.render = function() {
+  } else {
 
-
-
-
-
-
-
-
-
-
-
-
-// showResultsButton();
-// showMoreVotesButton();
-//
-// bag.render();
-// banana.render();
-// bathroom.render();
-// boots.render();
-// breakfast.render();
-// bubblegum.render();
-// chair.render();
-// cthulhu.render();
-// dog.render();
-// dragon.render();
-// pen.render();
-// petSweep.render();
-// scissors.render();
-// shark.render();
-// sweep.render();
-// tauntaun.render();
-// unicorn.render();
-// usb.render();
-// waterCan.render();
-// wineGlass.render();
+    document.getElementById('more votes').style.visibility = 'visible';
+  }
+}
