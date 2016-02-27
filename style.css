@@ -7,17 +7,13 @@ title {
 }
 
 img {
-  flex-wrap: nowrap|wrap|wrap-reverse;
+  flex:auto;
   top: 50%;
   left: 50%;
   width: 400px;
   height: 400px;
 }
 
- .button1 {
-
-}
-
-.button2 {
+ button {
 
 }
