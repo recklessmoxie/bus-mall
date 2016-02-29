@@ -3,7 +3,7 @@ var globalClickCounter = 0;
 var imageDisplayLeft = document.getElementById('imageDisplayLeft');
 var imageDisplayCenter = document.getElementById('imageDisplayCenter');
 var imageDisplayRight = document.getElementById('imageDisplayRight');
-
+var plusOneDisplayedCount;
 
 function ProductData(imageName, imageId, imagePath) {
   this.imageName = imageName;
@@ -50,59 +50,56 @@ var waterCan = new ProductData('Water Can', 'waterCan',
 var wineGlass = new ProductData('Wine Glass', 'wineGlass',
   '<img src="img/wine-glass.png">');
 
+// **The function below is creating a random image array by shuffling and randomizing the data onto a separate array, this method eliminates the need for a comparison while loop.**//
 
-function getRandomArrayElements(arr) {
+var getRandomArrayElements = function (arr) {
   var shuffled = arr.slice(0),
     i = arr.length,
     min = i - 3,
     temp, index;
+
   while (i-- > min) {
     index = Math.floor((i + 1) * Math.random());
     temp = shuffled[index];
     shuffled[index] = shuffled[i];
     shuffled[i] = temp;
+
+    // **The following variables allow me to pull out the image path for use in the next function.**
+
     var randomImageArray = (shuffled.slice(min));
-    var displayProductArray = [randomImageArray[0].imagePath,
+    var displayImageArray = [randomImageArray[0].imagePath,
       randomImageArray[1].imagePath, randomImageArray[2].imagePath
     ];
   }
 
-  function displayProduct(arr) {
-    displayedProductLeft = imageDisplayLeft.innerHTML = arr[0];
-    displayedProductCenter = imageDisplayCenter.innerHTML = arr[1];
-    displayedProductRight = imageDisplayRight.innerHTML = arr[2];
-    console.log(displayProductArray);
+  // *// The function below is using the array produced above to display the randomly chosen images within the html document..//*
+  function displayImage(arr) {
+    leftImageDisplayed = imageDisplayLeft.innerHTML = arr[0];
+    centerImageDisplayed = imageDisplayCenter.innerHTML = arr[1];
+    rightImageDisplayed = imageDisplayRight.innerHTML = arr[2];
   }
-  displayProduct(displayProductArray);
+  displayImage(displayImageArray);
+  console.log();
+  return displayImageArray;
 }
 getRandomArrayElements(productImageData);
 
-// function pageDisplay() {
-//   var image1 = document.getElementById('pic1');
-//   image1.src = productImageData[0].imagePath;
-//   document.body.appendChild(image1);
-//
-//   var image2 = document.getElementById('pic2');
-//   image2.src = productImageData[1].imagePath;
-//   document.body.appendChild(image2);
-//
-//   var image3 = document.getElementById('pic3');
-//   image3.src = productImageData[2].imagePath;
-//   document.body.appendChild(image3);
-// }
-// pageDisplay(productImageData);
-//
-// // document.addEventListener('DOMContentLoaded', function(event) {
-// //   document.getElementById('pic1').addEventListener('click', displayNewImagesOnClick);
-// //   document.getElementById('pic2').addEventListener('click', displayNewImagesOnClick);
-// //   document.getElementById('pic3').addEventListener('click', displayNewImagesOnClick);
-// //
-// //   function displayNewImagesOnClick() {
-// //
-// //   }
-// // });
-//
-//
-//
-// // function newImageOnClick () {
-// //   image1.addEventListener
+
+imageDisplayLeft.addEventListener('click', leftClickHandler);
+
+
+// ** The following event handler will add 1 to the count of each image displayed and will be called upon by the handler for each display orientation later.**
+function userClickHandler() {
+  console.log(event);
+  globalClickCounter += 1;
+  [leftImageDisplayed].imageDisplayedCount += 1;
+  [centerImageDisplayed].imageDisplayedCount += 1;
+  [rightImageDisplayed].imageDisplayedCount += 1;
+
+}
+// ** Below are the individual handlers for each image placement. Allows for display counting even if image not clicked**
+function leftClickHandler(event) {
+  [leftImageDisplayed].imageDisplayedCount += 1;
+  [leftImageDisplayed].totalClickCount += 1;
+  userClickHandler();
+}
