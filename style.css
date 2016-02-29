@@ -1,12 +1,26 @@
-body {
+
+
+.flex-container {
 display:flex;
+flex-direction: row;
+background-color: #b6b8bb;
 }
 
-title {
-
+h1 {
+  display: flex;
+  flex:auto;
+  font-family:'Walter Turncoat', cursive;
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: semi-condensed;
 }
 
-img {
+.pics {
+  display: flex;
+  flex-flow: row;
+}
+
+#imageDisplayLeft {
   flex:auto;
   top: 50%;
   left: 50%;
@@ -14,6 +28,27 @@ img {
   height: 400px;
 }
 
- button {
+#imageDisplayCenter {
+  flex:auto;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+}
 
+#imageDisplayRight {
+  flex:auto;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+}
+
+#button {
+flex: auto;
+font-family:'Walter Turncoat', cursive;
+font-size: 12px;
+font-weight: bold;
+background:color: #5d8496;
+font: color #e2e1ec;
 }
