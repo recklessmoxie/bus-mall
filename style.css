@@ -1,15 +1,13 @@
-display: flex: auto;
 
-body {
 
+.flex-container {
+display:flex;
+flex-direction: row;
+background-color: #b6b8bb;
 }
 
-title {
-
-}
-
-.container {
-  display: flex:inline-block;
+.pics {
+  display: flex;
   flex-flow: row;
 }
 
