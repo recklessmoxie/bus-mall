@@ -6,11 +6,6 @@ flex-direction: row;
 background-color: #b6b8bb;
 }
 
-.pics {
-  display: flex;
-  flex-flow: row;
-}
-
 h1 {
   display: flex;
   flex:auto;
@@ -20,7 +15,12 @@ h1 {
   font-stretch: semi-condensed;
 }
 
-#pic1 {
+.pics {
+  display: flex;
+  flex-flow: row;
+}
+
+#imageDisplayLeft {
   flex:auto;
   top: 50%;
   left: 50%;
@@ -28,7 +28,7 @@ h1 {
   height: 400px;
 }
 
-#pic2 {
+#imageDisplayCenter {
   flex:auto;
   top: 50%;
   left: 50%;
@@ -36,7 +36,7 @@ h1 {
   height: 400px;
 }
 
-#pic3 {
+#imageDisplayRight {
   flex:auto;
   top: 50%;
   left: 50%;
