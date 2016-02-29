@@ -1,16 +1,25 @@
+display: flex: auto;
 
 body {
 
 }
 
 title {
-  font-family: monospace:
-
 
 }
+
 .container {
   display: flex:inline-block;
   flex-flow: row;
+}
+
+h1 {
+  display: flex;
+  flex:auto;
+  font-family:'Walter Turncoat', cursive;
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: semi-condensed;
 }
 
 #pic1 {
@@ -37,6 +46,11 @@ title {
   height: 400px;
 }
 
-.inline-block-tight button {
-  flex: auto;
+#button {
+flex: auto;
+font-family:'Walter Turncoat', cursive;
+font-size: 12px;
+font-weight: bold;
+background:color: #5d8496;
+font: color #e2e1ec;
 }
