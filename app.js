@@ -1,13 +1,13 @@
 'use strict';
 
 var productImageData = [];
-var globalClickCounter = 0;
-var img1;
-var img2;
-var img3;
-var image1 = document.getElementById('image1');
-var image2 = document.getElementById('image2');
-var image3 = document.getElementById('image3');
+// var globalClickCounter = 0;
+// var img1;
+// var img2;
+// var img3;
+// var image1 = document.getElementById('image1');
+// var image2 = document.getElementById('image2');
+// var image3 = document.getElementById('image3');
 
 function ProductData(imageName, imageId, imagePath) {
   this.imageName = imageName;
@@ -43,23 +43,26 @@ var usb = new ProductData('Usb Tentacle', 'usb', 'img/usb.gif');
 var waterCan = new ProductData('Water Can', 'waterCan', 'img/water-can.png');
 var wineGlass = new ProductData('Wine Glass', 'wineGlass', 'img/wine-glass.png');
 
-function getRandomArrayElements(arr, count) {
+
+function getRandomArrayElements(arr) {
   var shuffled = arr.slice(0),
     i = arr.length,
-    min = i - count,
+    min = i - 3,
     temp, index;
   while (i-- > min) {
     index = Math.floor((i + 1) * Math.random());
     temp = shuffled[index];
     shuffled[index] = shuffled[i];
     shuffled[i] = temp;
+    var randomImageArray = (shuffled.slice(min));
   }
-  return shuffled.slice(min);
+
+  return randomImageArray;
+
 }
+getRandomArrayElements(productImageData);
 
-console.log(getRandomArrayElements(productImageData, 3));
-
-function PageDisplay() {
+function pageDisplay() {
   var image1 = document.getElementById('pic1');
   image1.src = productImageData[0].imagePath;
   document.body.appendChild(image1);
@@ -72,7 +75,7 @@ function PageDisplay() {
   image3.src = productImageData[2].imagePath;
   document.body.appendChild(image3);
 }
-
+pageDisplay(productImageData);
 
 // document.addEventListener('DOMContentLoaded', function(event) {
 //   document.getElementById('pic1').addEventListener('click', displayNewImagesOnClick);

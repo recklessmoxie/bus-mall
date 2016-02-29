@@ -1,12 +1,19 @@
+
 body {
-display:flex;
+
 }
 
 title {
+  font-family: monospace:
+
 
 }
+.container {
+  display: flex:inline-block;
+  flex-flow: row;
+}
 
-img {
+#pic1 {
   flex:auto;
   top: 50%;
   left: 50%;
@@ -14,6 +21,22 @@ img {
   height: 400px;
 }
 
- button {
+#pic2 {
+  flex:auto;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+}
 
+#pic3 {
+  flex:auto;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+}
+
+.inline-block-tight button {
+  flex: auto;
 }
