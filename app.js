@@ -4,14 +4,19 @@ var globalClickCounter = 0;
 var imageDisplayLeft = document.getElementById('imageDisplayLeft');
 var imageDisplayCenter = document.getElementById('imageDisplayCenter');
 var imageDisplayRight = document.getElementById('imageDisplayRight');
+var imageDisplayedLeft;
+var imageDisplayedCenter;
+var imageDisplayedRight;
 
 function ProductData(imageName, imageId, imagePath) {
   this.imageName = imageName;
   this.imageId = imageId;
   this.imagePath = imagePath;
+  this.userClickCount = 0;
   this.imageDisplayedCount = 0;
-  this.totalClickCount = 0;
-  productImageData.push(this);
+  this.userChoseLeft = 0;
+  this.userChoseCenter = 0;
+  this.userChoseRight = 0;
 };
 
 var allImageData = [
@@ -57,7 +62,7 @@ var allImageData = [
 var getRandomArrayElements = function (arr) {
   var shuffled = arr.slice(0),
     i = arr.length,
-    min = i - 1,
+    min = i - 3,
     temp, index;
 
   while (i-- > min) {
@@ -84,7 +89,7 @@ var getRandomArrayElements = function (arr) {
   console.log(displayImageArray);
   return displayImageArray;
 }
-getRandomArrayElements(productImageData);
+getRandomArrayElements(allImageData);
 
 
 imageDisplayLeft.addEventListener('click', leftClickHandler);
