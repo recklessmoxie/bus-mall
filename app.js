@@ -4,16 +4,15 @@ var globalClickCounter = 0;
 var imageDisplayLeft = document.getElementById('imageDisplayLeft');
 var imageDisplayCenter = document.getElementById('imageDisplayCenter');
 var imageDisplayRight = document.getElementById('imageDisplayRight');
-var imageDisplayedLeft;
-var imageDisplayedCenter;
-var imageDisplayedRight;
+var leftImage;
+var centerImage;
+var rightImage;
 
 function ProductData(imageName, imageId, imagePath) {
   this.imageName = imageName;
   this.imageId = imageId;
   this.imagePath = imagePath;
-  this.userClickCount = 0;
-  this.imageDisplayedCount = 0;
+  this.imageDisplayCount = 0;
   this.userChoseLeft = 0;
   this.userChoseCenter = 0;
   this.userChoseRight = 0;
@@ -81,9 +80,9 @@ var getRandomArrayElements = function (arr) {
 
   // *// The function below is using the array produced above to display the randomly chosen images within the html document..//*
   function displayImage(arr) {
-    leftImageDisplayed = imageDisplayLeft.innerHTML = arr[0];
-    centerImageDisplayed = imageDisplayCenter.innerHTML = arr[1];
-    rightImageDisplayed = imageDisplayRight.innerHTML = arr[2];
+    leftImage = imageDisplayLeft.innerHTML = arr[0];
+    centerImage = imageDisplayCenter.innerHTML = arr[1];
+    rightImage = imageDisplayRight.innerHTML = arr[2];
   }
   displayImage(displayImageArray);
   console.log(displayImageArray);
@@ -101,26 +100,26 @@ imageDisplayRight.addEventListener('click', rightClickHandler);
 function userClickHandler() {
   console.log(event);
   globalClickCounter += 1;
-  [leftImageDisplayed].imageDisplayedCount += 1;
-  [centerImageDisplayed].imageDisplayedCount += 1;
-  rightImageDisplayed.imageDisplayedCount += 1;
+  [leftImage].imageDisplayCount += 1;
+  [centerImage].imageDisplayCount += 1;
+  [rightImage].imageDisplayCount += 1;
 
 }
 // ** Below are the individual handlers for each image placement. Allows for display counting even if image not clicked**
 function leftClickHandler(event) {
-  ProductData[leftImageDisplayed].imageDisplayedCount += 1;
-  ProductData[leftImageDisplayed].totalClickCount += 1;
+  [leftImage].imageDisplayCount += 1;
+  [leftImage].userChoseLeft += 1;
   userClickHandler();
 }
 
 function centerClickHandler(event) {
-  ProductData[centerImageDisplayed].imageDisplayedCount += 1;
-  ProductData[centerImageDisplayed].totalClickCount += 1;
+  [centerImage].imageDisplayCount += 1;
+  [centerImage].userChoseCenter += 1;
   userClickHandler();
 }
 
 function rightClickHandler(event) {
-  rightImageDisplayed.imageDisplayedCount += 1;
-  rightImageDisplayed.totalClickCount += 1;
+  [rightImage].imageDisplayCount += 1;
+  [rightImage].userChoseRight += 1;
   userClickHandler();
 }
