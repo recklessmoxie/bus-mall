@@ -1,21 +1,16 @@
 'use strict';
 
 var globalClickCounter = 0;
-var imageDisplayLeft = document.getElementById('imageDisplayLeft');
-var imageDisplayCenter = document.getElementById('imageDisplayCenter');
-var imageDisplayRight = document.getElementById('imageDisplayRight');
-var leftImage;
-var centerImage;
-var rightImage;
+var randomImage = [];
 
 function ProductData(imageName, imageId, imagePath) {
   this.imageName = imageName;
   this.imageId = imageId;
   this.imagePath = imagePath;
-  this.imageDisplayCount = 0;
-  this.userChoseLeft = 0;
-  this.userChoseCenter = 0;
-  this.userChoseRight = 0;
+  this.clickCount = 0;
+  this.displayLeft = 0;
+  this.displayCenter = 0;
+  this.displayRight = 0;
 };
 
 var allImageData = [
@@ -56,9 +51,14 @@ var allImageData = [
     '<img src="img/wine-glass.png">')
 ];
 
-// **The function below is creating a random image array by shuffling and randomizing the data onto a separate array, this method eliminates the need for a comparison while loop.**//
+var displayLeft = document.getElementById('displayLeft');
+var displayCenter = document.getElementById('displayCenter');
+var displayRight = document.getElementById('displayRight');
+var leftImage;
+var centerImage;
+var rightImage;
 
-var getRandomArrayElements = function (arr) {
+function getAndDisplayRandomImage(arr) {
   var shuffled = arr.slice(0),
     i = arr.length,
     min = i - 3,
@@ -70,56 +70,48 @@ var getRandomArrayElements = function (arr) {
     shuffled[index] = shuffled[i];
     shuffled[i] = temp;
 
-    // **The following variables allow me to pull out the image path for use in the next function.**
-
-    var randomImageArray = (shuffled.slice(min));
-    var displayImageArray = [randomImageArray[0].imagePath,
-      randomImageArray[1].imagePath, randomImageArray[2].imagePath
-    ];
+    randomImage = (shuffled.slice(min));
   }
 
-  // *// The function below is using the array produced above to display the randomly chosen images within the html document..//*
-  function displayImage(arr) {
-    leftImage = imageDisplayLeft.innerHTML = arr[0];
-    centerImage = imageDisplayCenter.innerHTML = arr[1];
-    rightImage = imageDisplayRight.innerHTML = arr[2];
-  }
-  displayImage(displayImageArray);
-  console.log(displayImageArray);
-  return displayImageArray;
-}
-getRandomArrayElements(allImageData);
+  leftImage = displayLeft.innerHTML = randomImage[0].imagePath;
+  centerImage = displayCenter.innerHTML = randomImage[1].imagePath;
+  rightImage = displayRight.innerHTML = randomImage[2].imagePath;
+  console.log(randomImage);
 
+};
+getAndDisplayRandomImage(allImageData);
 
-imageDisplayLeft.addEventListener('click', leftClickHandler);
-imageDisplayCenter.addEventListener('click', centerClickHandler);
-imageDisplayRight.addEventListener('click', rightClickHandler);
+displayLeft.addEventListener('click', function () {
+  userClickHandler(randomImage[0])
+});
+displayCenter.addEventListener('click', function () {
+  userClickHandler(randomImage[1])
+});
+displayRight.addEventListener('click', function () {
+  userClickHandler(randomImage[2])
+});
 
-
-// ** The following event handler will add 1 to the count of each image displayed and will be called upon by the handler for each display orientation later.**
-function userClickHandler() {
+function userClickHandler(event) {
+  globalClickCounter++
   console.log(event);
-  globalClickCounter += 1;
-  [leftImage].imageDisplayCount += 1;
-  [centerImage].imageDisplayCount += 1;
-  [rightImage].imageDisplayCount += 1;
+  event.clickCount++;
+  randomImage[0].displayLeft++;
+  randomImage[1].displayCenter++;
+  randomImage[2].displayRight++;
+  getAndDisplayRandomImage(allImageData);
+};
 
-}
-// ** Below are the individual handlers for each image placement. Allows for display counting even if image not clicked**
-function leftClickHandler(event) {
-  [leftImage].imageDisplayCount += 1;
-  [leftImage].userChoseLeft += 1;
-  userClickHandler();
-}
-
-function centerClickHandler(event) {
-  [centerImage].imageDisplayCount += 1;
-  [centerImage].userChoseCenter += 1;
-  userClickHandler();
-}
-
-function rightClickHandler(event) {
-  [rightImage].imageDisplayCount += 1;
-  [rightImage].userChoseRight += 1;
-  userClickHandler();
-}
+// function leftClickHandler() {
+//   allImageData[leftImage].userChoseLeft++;
+//   userClickHandler();
+// }
+//
+// function centerClickHandler(event) {
+//   allImageData[centerImage].userChoseCenter++;
+//   userClickHandler();
+// }
+//
+// function rightClickHandler(event) {
+//   allImageData[rightImage].userChoseRight++;
+//   userClickHandler();
+// }
