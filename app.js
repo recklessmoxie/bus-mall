@@ -100,3 +100,23 @@ function userClickHandler(event) {
 };
 
 getAndDisplayRandomImage(allImageData);
+
+function showResultsButton() {
+  if (globalClickCounter < ProductImageData.length) {
+    document.getElementById('view results').style.visibility = 'hidden';
+
+  } else {
+
+    document.getElementById('view results').style.visibility = 'visible';
+  }
+}
+
+function showMoreVotesButton() {
+  if (globalClickCounter < ProductData.length) {
+    document.getElementById('more votes').style.visibility = 'hidden';
+
+  } else {
+
+    document.getElementById('more votes').style.visibility = 'visible';
+  }
+}

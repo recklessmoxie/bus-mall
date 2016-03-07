@@ -30,14 +30,6 @@ position: relative;
 box-sizing: border-box;
 }
 
-.button {
-display: block;
+button {
 font-size: 1.6em;
-font: inherit;
-text-align: center;
-box-sizing: border-box;
-border: 5px;
-border-radius: 5px;
-background:color: #5d8496;
-color #e2e1ec;
 }
