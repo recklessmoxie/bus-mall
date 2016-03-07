@@ -77,9 +77,7 @@ function getAndDisplayRandomImage(arr) {
   centerImage = displayCenter.innerHTML = randomImage[1].imagePath;
   rightImage = displayRight.innerHTML = randomImage[2].imagePath;
   console.log(randomImage);
-
 };
-getAndDisplayRandomImage(allImageData);
 
 displayLeft.addEventListener('click', function () {
   userClickHandler(randomImage[0])
@@ -101,17 +99,4 @@ function userClickHandler(event) {
   getAndDisplayRandomImage(allImageData);
 };
 
-// function leftClickHandler() {
-//   allImageData[leftImage].userChoseLeft++;
-//   userClickHandler();
-// }
-//
-// function centerClickHandler(event) {
-//   allImageData[centerImage].userChoseCenter++;
-//   userClickHandler();
-// }
-//
-// function rightClickHandler(event) {
-//   allImageData[rightImage].userChoseRight++;
-//   userClickHandler();
-// }
+getAndDisplayRandomImage(allImageData);
