@@ -1,35 +1,15 @@
-@import
-url(https://fonts.googleapis.com/css?family=Walter+Turncoat);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700,400|Open+Sans+Condensed:300,700);
 
 body {
 background-color: #78a6bf;
 font-size: 62.5%;
-text-align: center;
+font-family:"Montserrat", serif;
 }
 
 h1.header {
-  display:inline-flex;
-  font-family: 'Walter Turncoat', cursive;
-  font-size: 2.8em;
-  margin: 2%;
-}
-.main-container {
-  display:flex;
-}
-.main-container div {
-  display: inline-flex;
-  padding:2px;
-
-}
-
-img {
-display:inline-block;
-border: solid 5px;
-color: #295f7d;
-position: relative;
-box-sizing: border-box;
-}
-
-button {
-font-size: 1.6em;
+  font-family:"Montserrat", serif;
+  font-weight: 700;
+  font-size: 4.8em;
+  color:#434046;
+  text-align: center;
 }
